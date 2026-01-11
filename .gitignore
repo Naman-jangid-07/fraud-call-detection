@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Environment / Secrets
+.env
+
+# Data & Audio (Don't upload large datasets)
+data/raw/
+data/processed/
+*.wav
+*.mp3
+
+# Logs
+logs/
+# Ignore the virtual environment
+venv/
+.venv/
+env/
+
+# Ignore all audio files
+*.wav
+*.mp3
+*.m4a
+*.ogg
+*.flac
+
+# Ignore datasets and models
+data/raw/
+data/processed/
+*.pt
+*.pkl
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

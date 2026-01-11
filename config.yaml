@@ -1,0 +1,90 @@
+# Project Configuration
+project:
+  name: "Real-Time Fraud Call Detector"
+  version: "1.0.0"
+
+# Data Collection
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  model_path: "data/models/"
+  dataset_size: 5000
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+# Model Configuration
+# Model Configuration
+model:
+  name: "xlnet-base-cased"
+  max_length: 512
+  batch_size: 16
+  learning_rate: 0.00002
+  epochs: 10
+  warmup_steps: 500
+  weight_decay: 0.01
+
+# Audio Processing
+audio:
+  sample_rate: 16000
+  chunk_duration: 3.0  # seconds
+  overlap: 1.0  # seconds
+  n_mfcc: 40
+  n_fft: 2048
+  hop_length: 512
+
+# Speech-to-Text
+stt:
+  engine: "whisper"  # options: whisper, assemblyai, deepgram
+  model_size: "base"  # tiny, base, small, medium, large
+  language: "en"
+  streaming: true
+
+# Real-time Detection
+detection:
+  fraud_threshold: 0.7
+  warning_threshold: 0.5
+  analysis_window: 15  # seconds
+  alert_frequency: 10  # seconds
+
+# Fraud Patterns (keywords and phrases)
+fraud_patterns:
+  urgency_keywords:
+    - "immediately"
+    - "right now"
+    - "urgent"
+    - "emergency"
+    - "act fast"
+    - "limited time"
+  
+  financial_requests:
+    - "bank account"
+    - "credit card"
+    - "social security"
+    - "wire transfer"
+    - "gift card"
+    - "bitcoin"
+    - "cryptocurrency"
+  
+  impersonation_phrases:
+    - "IRS"
+    - "tax department"
+    - "Microsoft support"
+    - "Apple support"
+    - "tech support"
+    - "police department"
+    - "government agency"
+  
+  pressure_tactics:
+    - "arrest warrant"
+    - "legal action"
+    - "lawsuit"
+    - "suspended account"
+    - "frozen account"
+    - "verify your identity"
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
